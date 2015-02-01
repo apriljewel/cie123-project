@@ -12,13 +12,30 @@ public class Espionage{
 		Scanner input = new Scanner(System.in);
 		
 		do{
-			System.out.print("Dice Roll: "+rollDice());
-		}while(!"/".equals(input.nextLine()));
+			if(pass(rollDice())){
+				Player.heal(1);
+			}else{
+				Player.takeDamage(1);
+			}
+			
+			Player.getHP();
+		}while(Player.isAlive() && !"die".equals(input.nextLine()));
 	}
 	
 	public static int rollDice(){
 		Random rand = new Random();
 		int number = rand.nextInt(6)+1;
+		
+		System.out.println("Dice Roll: "+number);
+		
 		return number;
+	}
+	
+	public static boolean pass(int roll){
+		if(roll > 4){
+			return true;
+		}
+		
+		return false;
 	}
 }
