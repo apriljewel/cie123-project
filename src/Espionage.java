@@ -7,20 +7,30 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Espionage{
+/**
+ * This class contains the main program and the main functions.
+ */
+
+ public class Espionage{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
+		Player player = new Player();
 		
 		do{
 			if(pass(rollDice())){
-				Player.heal(1);
+				player.heal(1);
 			}else{
-				Player.takeDamage(1);
+				player.takeDamage(1);
 			}
 			
-			Player.getHP();
-		}while(Player.isAlive() && !"die".equals(input.nextLine()));
+			player.getHP();
+		}while(player.isAlive() && !"die".equals(input.nextLine()));
 	}
+	
+	/**
+	 * This function generates a random number between 1 to 6, used for gauging successful or unsuccessful encounters.
+	 * @return	random number between 1 and 6
+	 */
 	
 	public static int rollDice(){
 		Random rand = new Random();
@@ -30,6 +40,12 @@ public class Espionage{
 		
 		return number;
 	}
+	
+	/**
+	 * This function determines whether a dice roll is successful or not.
+	 * @param	roll	the dice roll
+	 * @return	true if roll is successful, false if not
+	 */
 	
 	public static boolean pass(int roll){
 		if(roll > 4){
