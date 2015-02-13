@@ -13,18 +13,10 @@ import java.util.Scanner;
 
  public class Espionage{
 	public static void main(String[] args){
-		Scanner input = new Scanner(System.in);
 		Player player = new Player();
 		
-		do{
-			if(pass(rollDice())){
-				player.heal(1);
-			}else{
-				player.takeDamage(1);
-			}
-			
-			player.getHP();
-		}while(player.isAlive() && !"die".equals(input.nextLine()));
+		System.out.println("Encounter using Guns Skill of "+player.GUNS);
+		encounter(player.GUNS);
 	}
 	
 	/**
@@ -36,7 +28,7 @@ import java.util.Scanner;
 		Random rand = new Random();
 		int number = rand.nextInt(6)+1;
 		
-		System.out.println("Dice Roll: "+number);
+		System.out.print("Dice Roll: "+number);
 		
 		return number;
 	}
@@ -52,6 +44,28 @@ import java.util.Scanner;
 			return true;
 		}
 		
+		return false;
+	}
+	
+	/**
+	 * This function determines the outcome of an encounter.
+	 * @param	skill	the skill needed for the encounter
+	 * @return	true if encounter is successful, false if not
+	 */
+	
+	public static boolean encounter(int skill){
+		Scanner input = new Scanner(System.in);
+		
+		for(int i = skill; i > 0; i--){
+			input.nextLine();
+			System.out.print(i+": ");
+			if(pass(rollDice())){
+				System.out.println("\nYou passed!");
+				return true;
+			}
+		}
+		
+		System.out.println("\nYou failed!");
 		return false;
 	}
 }
