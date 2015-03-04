@@ -32,5 +32,6 @@ public class TestCase {
 		Scanner input = new Scanner(System.in);
 		assertNotNull(input);
 	}
+	
 }
 
