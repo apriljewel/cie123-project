@@ -32,5 +32,37 @@ public class TestCase {
 		Scanner input = new Scanner(System.in);
 		assertNotNull(input);
 	}
+	
+	/**
+	* This test scenario is the JUnit test case for the takeDamage function.
+	*/
+	
+	public void testTakeDamage() {
+		
+	}
+	
+	/**
+	* This test scenario is the JUnit test case for the heal function.
+	*/
+	
+	public void testHeal() {
+		
+	}
+	
+	/**
+	* This test scenario is the JUnit test case for the getHP function.
+	*/
+	
+	public void testGetHP() {
+		
+	}
+	
+	/**
+	* This test scenario is the JUnit test case for the isAlive function.
+	*/
+	
+	public void testIsAlive() {
+		
+	}
 }
 
