@@ -29,7 +29,8 @@ public class TestCase {
 	*/
 
 	public void testEncounter() {
-		
+		Scanner input = new Scanner(System.in);
+		assertNotNull(input);
 	}
 }
 
