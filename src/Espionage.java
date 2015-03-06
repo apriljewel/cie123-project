@@ -13,10 +13,10 @@ import java.util.Scanner;
 
  public class Espionage{
 	public static void main(String[] args){
-		Player player = new Player();
+		Player player = new Player(10, 3, 3, 3, 3, 3, 3);
 		
-		System.out.println("Encounter using Guns Skill of "+player.GUNS);
-		encounter(player.GUNS);
+		System.out.println("Encounter using Guns Skill of "+player.getSkill(1));
+		encounter(player.getSkill(1));
 	}
 	
 	/**

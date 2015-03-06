@@ -3,8 +3,19 @@
  */
 
  public class Player{
-	private static int HP = 15;
-	public static int GUNS = 2, LOCKPICK = 4, MEDICINE = 4, SCIENCE = 4, SNEAK = 4, SPEECH = 4;
+	private int hp;
+	private int[] skill = new int[6];
+	
+	Player(int hp, int guns, int lockpick, int medicine, int science, int sneak, int speech){
+		this.hp = hp;
+		
+		skill[0] = guns;
+		skill[1] = lockpick;
+		skill[2] = medicine;
+		skill[3] = science;
+		skill[4] = sneak;
+		skill[5] = speech;
+	}
 	
 	/**
 	 * This function decreases the health points of the player.
@@ -12,10 +23,10 @@
 	 * @return	the modified health points
 	 */
 	 
-	public static int takeDamage(int damage){
-		HP -= damage;
+	public int takeDamage(int damage){
+		hp -= damage;
 		
-		return HP;
+		return hp;
 	}
 	
 	/**
@@ -24,10 +35,10 @@
 	 * @return	the modified health points
 	 */
 	 
-	public static int heal(int regen){
-		HP += regen;
+	public int heal(int regen){
+		hp += regen;
 		
-		return HP;
+		return hp;
 	}
 	
 	/**
@@ -35,9 +46,9 @@
 	 * @return	the player's health points
 	 */
 	
-	public static int getHP(){
-		System.out.println("HP: "+HP);
-		return HP;
+	public int getHP(){
+		System.out.println("HP: "+hp);
+		return hp;
 	}
 	
 	/**
@@ -45,13 +56,17 @@
 	 * @return	true if the player is alive, false if dead
 	 */
 	 
-	public static boolean isAlive(){
-		if(HP > 0){
+	public boolean isAlive(){
+		if(hp > 0){
 			return true;
 		}
 		
 		System.out.println("You are dead.");
-		HP = 0;
+		hp = 0;
 		return false;
+	}
+	
+	public int getSkill(int index){
+		return skill[index];
 	}
 }
