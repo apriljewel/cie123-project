@@ -20,8 +20,10 @@ public class TestCase {
 	* This test scenario is the JUnit test case for the pass function.
 	*/
 	
+	@Test
 	public void testPass() {
-		
+		Espionage number = new Espionage();
+		assertTrue(number.pass(4));
 	}
 	
 	/**
@@ -62,7 +64,8 @@ public class TestCase {
 	*/
 	
 	public void testIsAlive() {
-		
+		Player life = new Player();
+		assertTrue(life.isAlive(1));
 	}
 }
 
