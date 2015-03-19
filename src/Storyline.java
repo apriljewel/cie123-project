@@ -27,7 +27,7 @@ public class Storyline {
 		
 		if (a == "1") {
 			String b;
-			HP = +5;
+			player.heal(5);
 			System.out.println("'I've noticed you around before, how may I help "
 					+ "you?' you ask. But just before you were able to finish he hastily waves "
 					+ " his hand and shrugs as if to say he doesn't want to be "
@@ -40,7 +40,7 @@ public class Storyline {
 			
 			if (b == "1") {
 				String d;
-				HP = +5;
+				player.heal(5);
 				System.out.println("You rush back towards the building and see the "
 						+ "same man quickly turning on the next block. Do you 1) chase "
 						+ "after him or 2) call your partner in the building?");
@@ -49,19 +49,19 @@ public class Storyline {
 				
 				if (d == "1"){
 					String h;
-					HP = +2;
+					player.heal(2);
 					System.out.println("");
 					
 				} else if (d == "2") {
 					String i;
-					HP = -2;
+					player.takeDamage(2);
 					System.out.println("");
 				
 				}
 				
 			} else if (b == "2") {
 				String e;
-				HP = -3;
+				player.takeDamage(3);
 				System.out.println("The other end rings but no one picks up. Do you "
 						+ "1) keep trying or 2) enter the building?");
 				
@@ -76,7 +76,7 @@ public class Storyline {
 			
 		} else if (a == "2" ){
 			String c;
-			HP = -3;
+			player.takeDamage(3);
 			System.out.println("You get inside your car and notice you forgot some "
 					+ "important papers. You go back to the building, ride "
 					+ "the elevator, and as you near your office you see the place"
@@ -86,17 +86,15 @@ public class Storyline {
 			c = in.nextLine();
 			
 			if (c == "1") {
-				HP = +5;
+				player.heal(3);
 				System.out.println("");
 				
 			} else if (c == "2") {
-				HP = -1;
+				player.takeDamage(1);
 				System.out.println("");
 			}
 		}
 		
-		
-		}
 	}
 
 }
