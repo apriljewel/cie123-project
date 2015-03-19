@@ -22,7 +22,6 @@ public class Storyline {
 				+ "typical appearance of someone mischievous,' you facetiously "
 				+ " think to yourself again. Do you  1) approach the man or  "
 				+ "2) walk past him like the previous times?");
-		
 		a = in.nextLine();
 		
 		if (a == "1") {
@@ -35,64 +34,76 @@ public class Storyline {
 					+ "As you close the door you notice people rushing out of the agency. "
 					+ "Do you 1) get out and see what's going on or 2) call your partner "
 					+ "who hasn't left the building?");
-			
 			b = in.nextLine();
 			
 			if (b == "1") {
-				String d;
+				String c;
 				player.heal(5);
 				System.out.println("You rush back towards the building and see the "
 						+ "same man quickly turning on the next block. Do you 1) chase "
 						+ "after him or 2) call your partner in the building?");
+				c = in.nextLine();
 				
-				d = in.nextLine();
-				
-				if (d == "1"){
-					String h;
+				if (c == "1"){
+					String d;
 					player.heal(2);
-					System.out.println("");
+					System.out.println("You reach the next block as quickly as possible, "
+							+ "but as you turn the man is nowhere to be seen. You keep "
+							+ "running and looking at every alley. ");
+					d = in.nextLine();
 					
-				} else if (d == "2") {
-					String i;
+				} else if (c == "2") {
+					String d;
 					player.takeDamage(2);
 					System.out.println("");
-				
+					d = in.nextLine();
 				}
 				
 			} else if (b == "2") {
-				String e;
+				String c;
 				player.takeDamage(3);
 				System.out.println("The other end rings but no one picks up. Do you "
 						+ "1) keep trying or 2) enter the building?");
+				c = in.nextLine();
 				
-				e = in.nextLine();
+				if (c == "1") {
+					String d;
+					player.takeDamage(2);
+					System.out.println("");
+					d = in.nextLine();
 				
-				if (e == "1") {
-				
-				} else if (e == "2") {
+				} else if (c == "2") {
+					String d;
+					player.takeDamage(1);
+					System.out.println("");
+					d = in.nextLine();
 				
 				}
 			}
 			
 		} else if (a == "2" ){
-			String c;
+			String b;
 			player.takeDamage(3);
 			System.out.println("You get inside your car and notice you forgot some "
 					+ "important papers. You go back to the building, ride "
 					+ "the elevator, and as you near your office you see the place"
 					+ "completely demolished with everything turned over and bodies "
 					+ "on the floor. Do you 1) look for the assassins or 2) get an ally?");
+			b = in.nextLine();
 			
-			c = in.nextLine();
-			
-			if (c == "1") {
+			if (b == "1") {
+				String c;
 				player.heal(3);
 				System.out.println("");
+				c = in.nextLine();
 				
-			} else if (c == "2") {
+			} else if (b == "2") {
+				Strinc c;
 				player.takeDamage(1);
 				System.out.println("");
+				c = in.nextLine();
 			}
+			
 		}
 		
 	}
