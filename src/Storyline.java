@@ -173,9 +173,6 @@ public class Storyline {
 				System.out.println("");
 			}
 		}
-		
-		
-		}
 	}
 
 }
