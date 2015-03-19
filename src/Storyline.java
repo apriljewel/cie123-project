@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class Storyline {
 	public static void main (String[] args){
 		String a;
-		
 		System.out.println("You've just left the spy agency when you "
 				+ "instinctly spot that stranger's face for the third "
 				+ "time. You think to yourself, 'Who is this man?' "
@@ -25,6 +24,7 @@ public class Storyline {
 		a = in.nextLine();
 		
 		if (a == "1") {
+			player.getSkill(5);
 			String b;
 			player.heal(5);
 			System.out.println("'I've noticed you around before, how may I help "
@@ -48,15 +48,93 @@ public class Storyline {
 					String d;
 					player.heal(2);
 					System.out.println("You reach the next block as quickly as possible, "
-							+ "but as you turn the man is nowhere to be seen. You keep "
-							+ "running and looking at every alley. ");
+							+ "but as you turn around the corner, you see a door bang "
+							+ "close a few meters away. Do you 1) go the same way or "
+							+ "2) find an alternative route? ");
 					d = in.nextLine();
+					
+						
+					if (d == "1"){
+						String e;
+						player.heal(1);
+						System.out.println("You push the door but it doesn't open. "
+								+ "Do you 1) use your gun or 2) use a lockpick?");
+						e = in.nextLine();
+							
+						if (e == "1"){
+							player.getSkill(0);
+							player.heal(1);
+							System.out.println("The lock breaks. You push the door open "
+									+ "and find a flight of stairs. You hear someone running up "
+									+ "and you point your gun towards the man. You've wasted your "
+									+ "last bullet to break the lock. The man aims and shoots you.");
+							espionage.encounter(player.getSkill(0));
+							System.out.println("The end.");
+						} else if (e == "2") {
+							player.getSkill(1);
+							player.heal(2);
+							System.out.println("You wasted around 10 seconds to unlock the door. "
+									+ "The man has reached the top of the building and aims his "
+									+ "gun at you.");
+							espionage.encounter(player.getSkill(0));
+							System.out.println("The end.");
+						}
+					} else if (d == "2"){
+						String e;
+						player.heal(1);
+						System.out.println("You decide to enter the next building through the next "
+								+ "door. You reach the rooftop and spot the man still running. Do "
+								+ "you 1) try to shoot him or 2) keep chasing him? ");
+						e = in.nextLine();
+							
+							if (e == "1"){
+								System.out.println("You face a battle with the assassin.")
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							} else if (e == "2"){
+								System.out.println("You outsmart the assin and face a battle with him.")
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							}
+					}
 					
 				} else if (c == "2") {
 					String d;
 					player.takeDamage(2);
-					System.out.println("");
+					System.out.println("Your partner answers and you figure out a few "
+							+ "men have been shot in your building. The two of you quickly "
+							+ "agree to chase the suspect, but as you meet him you see he's been "
+							+ "wounded. Do you 1) mend his wound or 2) carry on with your mission?");
 					d = in.nextLine();
+						if (d == "1"){
+							player.getSkill(2);
+							player.takeDamage(2);
+							String e;
+							System.out.println("You re-enter the building to get a medicine kit. "
+									+ "Your partner insists on not wasting time and quickly "
+									+ "wraps his wound with a roller bandage. Soon after, the two of you "
+									+ "are on your way when someone shoots in your direction. Do you 1) "
+									+ "shoot back or 2) evade and sneak at the shooter?");
+							e = in.nextLine();
+								
+								if (e == "1"){
+									player.takeDamage(1);
+									System.out.println("You face a battle with the assassin.")
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								} else if (e == "2"){
+									player.heal(2);
+									System.out.println("You wait and ");
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								}
+							
+						} else if (d == "2"){
+							String e;
+							player.takeDamage(1);
+							System.out.println("");
+							e = in.nextLine();
+						}
 				}
 				
 			} else if (b == "2") {
@@ -84,28 +162,7 @@ public class Storyline {
 		} else if (a == "2" ){
 			String b;
 			player.takeDamage(3);
-			System.out.println("You get inside your car and notice you forgot some "
-					+ "important papers. You go back to the building, ride "
-					+ "the elevator, and as you near your office you see the place"
-					+ "completely demolished with everything turned over and bodies "
-					+ "on the floor. Do you 1) look for the assassins or 2) get an ally?");
-			b = in.nextLine();
-			
-			if (b == "1") {
-				String c;
-				player.heal(3);
-				System.out.println("");
-				c = in.nextLine();
-				
-			} else if (b == "2") {
-				Strinc c;
-				player.takeDamage(1);
-				System.out.println("");
-				c = in.nextLine();
-			}
-			
-		}
-		
-	}
+			System.out.println("You ignored your gut feeling. But he was in fact a "
+					+ "mischievous man. ");
 
 }
