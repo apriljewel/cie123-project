@@ -92,7 +92,7 @@ public class Storyline {
 								espionage.encounter(player.getSkill(0));
 								System.out.println("The end.");
 							} else if (e == "2"){
-								System.out.println("You outsmart the assin and face a battle with him.")
+								System.out.println("You outsmart the assassin and face a battle with him.")
 								espionage.encounter(player.getSkill(0));
 								System.out.println("The end.");
 							}
@@ -124,7 +124,8 @@ public class Storyline {
 									System.out.println("The end.");
 								} else if (e == "2"){
 									player.heal(2);
-									System.out.println("You wait and ");
+									System.out.println("You wait for your turn which turns "
+											+ "into a shoot off.");
 									espionage.encounter(player.getSkill(0));
 									System.out.println("The end.");
 								}
@@ -132,8 +133,23 @@ public class Storyline {
 						} else if (d == "2"){
 							String e;
 							player.takeDamage(1);
-							System.out.println("");
+							System.out.println("You quickly remember the direction the mischievous man "
+									+ "earlier had taken and follow it. You ask passersby if they've seen "
+									+ "a man you've described and are propitiously directed the right way. "
+									+ "");
 							e = in.nextLine();
+							
+								if (e == "1"){
+									player.takeDamage(1);
+									System.out.println();
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								} else if (e == "2"){
+									player.takeDamage(1);
+									System.out.println();
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								}
 						}
 				}
 				
@@ -162,7 +178,8 @@ public class Storyline {
 		} else if (a == "2" ){
 			String b;
 			player.takeDamage(3);
-			System.out.println("You ignored your gut feeling. But he was in fact a "
-					+ "mischievous man. ");
-
+			System.out.println("You ignored your gut feeling. He was in fact a "
+					+ "mischievous man. He quietly follows and stabs you from behind.");
+			espionage.encounter(player.getSkill(0));
+			System.out.println("The end.");
 }
