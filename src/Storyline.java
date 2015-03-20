@@ -4,8 +4,6 @@
  * @version - branch - Espionage Version 1.0
  */
 
-import java.util.Scanner;
-
 /**
  * This class contains the storyline of Espionage.
  */
@@ -134,26 +132,29 @@ public class Storyline {
 							String e;
 							player.takeDamage(1);
 							System.out.println("You quickly remember the direction the mischievous man "
-									+ "earlier had taken and follow it. You ask passersby if they've seen "
-									+ "a man you've described and are propitiously directed the right way. "
-									+ "");
+									+ "earlier had taken and follow it. To make sure, you ask passersby "
+									+ "if they've seen a man you've described and are propitiously "
+									+ "directed the right way. Do you 1) try to track down the assassin "
+									+ "or 2) try to involve a bigger team on the mission?");
 							e = in.nextLine();
 							
 								if (e == "1"){
 									player.takeDamage(1);
-									System.out.println();
+									System.out.println("The direction given was pointless. The assassin "
+											+ "took a circular route. You and your ally encounter a "
+											+ "shoot off with him.");
 									espionage.encounter(player.getSkill(0));
 									System.out.println("The end.");
 								} else if (e == "2"){
 									player.takeDamage(1);
-									System.out.println();
+									System.out.println("The mission remains unsolved.");
 									espionage.encounter(player.getSkill(0));
 									System.out.println("The end.");
 								}
 						}
 				}
 				
-			} else if (b == "2") {
+			} 	else if (b == "2") {
 				String c;
 				player.takeDamage(3);
 				System.out.println("The other end rings but no one picks up. Do you "
@@ -163,15 +164,115 @@ public class Storyline {
 				if (c == "1") {
 					String d;
 					player.takeDamage(2);
-					System.out.println("");
+					System.out.println("The call is answered by another person. He summons you "
+							+ "to enter the building to save your partner. Do you 1) follow the instructions "
+							+ "or 2) try to call someone else?");
 					d = in.nextLine();
-				
+					
+					if (d == "1"){
+						String e;
+						player.takeDamage(1);
+						System.out.println("You cautiously re-enter the building and head to your office. "
+								+ "The mischievous man stood behind your friend. He asks for top secret "
+								+ "information but that is against your service. Do you 1) shoot first or"
+								+ "2) give him false information.");
+						e = in.nextLine();
+							
+							if (e == "1"){
+								player.takeDamage(2);
+								System.out.println("You hit the man, but unfortunately he shoots your friend too.");
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							
+							} else if (e == "2"){
+								player.takeDamage(2);
+								System.out.println("The man plays along but senses the deception. He shoots the "
+										+ "both of you.");
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							}
+						
+					} else if (d == "2") {
+						String e;
+						player.takeDamage(2);
+						System.out.println("Surprisingly, the assassin got a hold of this number too. "
+								+ "Do you 1) call a third number just to make sure or 2) follow his previous "
+								+ "instructions?");
+						e = in.nextLine();
+						
+							if (e == "1"){
+								player.takeDamage(2);
+								System.out.println("You've underestimated the criminal when he answers for the "
+										+ "third time. But another chance is not given. He shoots your friend. And "
+										+ "he aims at you through the window.");
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							
+							} else if (e == "2"){
+								player.takeDamage(2);
+								System.out.println("You cautiously re-enter the building and head to your office. "
+								+ "The mischievous man stood behind your friend. He asks for top secret "
+								+ "information but that is against your service. You face a shoot off.");
+								espionage.encounter(player.getSkill(0));
+								System.out.println("The end.");
+							}
+					}
 				} else if (c == "2") {
 					String d;
 					player.takeDamage(1);
-					System.out.println("");
+					System.out.println("You try to ask the people rushing out what has happened, but "
+							+ "no one hears you as they sprint to the exits. Do you 1) follow everyone "
+							+ "back outside or 2) follow the urge to serve your job?");
 					d = in.nextLine();
-				
+						
+						if (d == "1"){
+							String e;
+							player.takeDamage(1);
+							System.out.println("As you near the exit, you hear shots just behind "
+									+ "the group of people trying to escape. There are more pushing and shoving. "
+									+ " Do you 1) try to shoot back or 2) run with the crowd? ");
+							e = in.nextLine();
+							
+								if (e == "1"){
+									player.takeDamage(2);
+									System.out.println("As you have a hard time trying to aim in the midst "
+											+ "of chaos, the assassin sees you and shoots in your "
+											+ "direction.");
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+									
+								} else if (e == "2"){
+									player.heal(1);
+									System.out.println("At this point the assassin only wants to get out of the building "
+											+ "as quickly as possible. He shoots whoever's in his way. Including you.");
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								}
+							
+						} else if (d == "2"){
+							String e;
+							player.takeDamage(2);
+							System.out.println("You cautiously examine each floor. As you reach the third, "
+									+ "you hear mumbling voices in a room. You sneak through the door and "
+									+ "see the mischievous man from earlier with someone else in "
+									+ "similar clothes. As they vigorously go through private files do you "
+									+ "1) shoot at them or 2) call for help?");
+							e = in.nextLine();
+							
+								if (e == "1"){
+									player.takeDamage(2);
+									System.out.println("Mission accomplished!");
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								
+								} else if (e == "2"){
+									player.takeDamage(2);
+									System.out.println("They hear you before your help arrives. You face a shoot off. "
+											+ "Two against one. ");
+									espionage.encounter(player.getSkill(0));
+									System.out.println("The end.");
+								}
+						}
 				}
 			}
 			
