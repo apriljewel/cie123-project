@@ -283,4 +283,5 @@ public class Storyline {
 					+ "mischievous man. He quietly follows and stabs you from behind.");
 			espionage.encounter(player.getSkill(0));
 			System.out.println("The end.");
+			
 }
