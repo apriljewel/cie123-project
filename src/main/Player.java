@@ -1,3 +1,4 @@
+package main;
 /**
  * This class contains the player attributes and functions.
  */
@@ -5,6 +6,7 @@
  public class Player{
 	private int hp;
 	private int[] skill = new int[6];
+	public static final int GUNS = 0, LOCKPICK = 1, MEDICINE = 2, SCIENCE = 3, SNEAK = 4, SPEECH = 5;
 	
 	Player(int hp, int guns, int lockpick, int medicine, int science, int sneak, int speech){
 		this.hp = hp;
