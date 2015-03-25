@@ -1,208 +1,226 @@
-{
-	You've just left the spy agency when you instinctively spot someone familiar,
-	a stranger whose face you've seen for the third time this week. You think
-	to yourself, 'Who is this man?' He's got a black hat and sunglasses along
-	with a long coat with his hands snugly placed in his pockets. 'The typical
-	appearance of someone mischievous,' you cleverly think to yourself. Do you
-		[A1]	[1] approach the man, or
-		[A2]	[2] walk past him like you always do?
-}
-
 (A1) {
-	'I've noticed you around before. Do you need anything?' you ask. Before you
-	were able to finish though, he hastily waves his hand and shrugs as if to say
-	he doesn't want to be disturbed and walks away unsteadily. You leave the
-	scene behind and get to your car. As you close the door you notice people
-	rushing out of the agency. Do you
-		[B1]	[1] get out and investigate, or
-		[B2]	[2] call your partner who's still in the building?
-}
-
-(A2) {
-	You ignored your gut feeling and walk away. The man quietly follows and stabs
-	you from behind. You are now dead.
-		[END]
+You've just left the spy agency when you instinctively spot someone familiar,
+a stranger whose face you've seen for the third time this week. You think
+to yourself, 'Who is this man?' He's got a black hat and sunglasses along
+with a long coat with his hands snugly placed in his pockets. 'The typical
+appearance of someone mischievous,' you cleverly think to yourself. Do you
+	[B1]	approach the man, or
+	[B2]	walk past him like you always do?
 }
 
 (B1) {
-	You rush back towards the building and see the same man quickly turning on
-	the next block. Do you
-		[C1]	[1] chase after him, or
-		[C2]	[2] call your partner who's still in the building?
+'I've noticed you around before. Do you need anything?' you ask. Before you
+were able to finish though, he hastily waves his hand and shrugs as if to say
+he doesn't want to be disturbed and walks away unsteadily. You leave the
+scene behind and get to your car. As you close the door you notice people
+rushing out of the agency. Do you
+	[C1]	get out and investigate, or
+	[C2]	call your partner who's still in the building?
 }
 
 (B2) {
-	The other end rings but no one picks up. Do you
-		[C3]	[1] keep trying, or
-		[C4]	[2] enter the building?
+You ignored your gut feeling and walk away. The man quietly follows and stabs
+you from behind. You are now dead.
+	[END]
 }
 
 (C1) {
-	You reach the next block as quickly as possible, but as you turn around the
-	corner, you see a door slam shut a few meters away. Do you
-		[D1]	[1] go the same way, or
-		[D2]	[2] find an alternative route?
+You rush back towards the building and see the same man quickly turning on
+the next block. Do you
+	[D1]	chase after him, or
+	[D2]	call your partner who's still in the building?
 }
 
 (C2) {
-	Your partner answers and you find out that a few men have been shot in the
-	building. The two of you quickly agree to chase the suspect. As you meet him
-	however, you see he's been wounded. Do you
-		[D3]	[1] mend his wound, or
-		[D4]	[2] carry on with your mission?
-}
-
-(C3) {
-	The call ins answered by an unknown voice. He summons you to enter the
-	building to save your partner. Do you
-		[D5]	[1] follow the instructions, or
-		[D6]	[2] try to call someone else?
-}
-
-(C4) {
-	You try to ask the people rushing out what has happened, but no one hears you
-	as they sprint to the exits. Do you
-		[D7]	[1] follow everyone back outside, or
-		[D8]	[2] keep going inside?
+The other end rings but no one picks up. Do you
+	[D3]	keep trying, or
+	[D4]	enter the building?
 }
 
 (D1) {
-	You push the door, but it doesn't open. Do you
-		[E1]	[1] use your gun, or
-		[E2]	[2] use your lock pick?
+You reach the next block as quickly as possible, but as you turn around the
+corner, you see a door slam shut a few meters away. Do you
+	[E1]	go the same way, or
+	[E2]	find an alternative route?
 }
 
 (D2) {
-	You decide to enter the next building. You reach the roof top and spot the
-	man still running. Do you
-		[E3]	[1] try to shoot him, or
-		[E4]	[2] keep chasing him?
+Your partner answers and you find out that a few men have been shot in the
+building. The two of you quickly agree to chase the suspect. As you meet him
+however, you see he's been wounded. Do you
+	[E3]	mend his wound, or
+	[E4]	carry on with your mission?
 }
 
 (D3) {
-	You re-enter the building to get a medicine kit. Your partner insists on not
-	wasting time and quickly wraps his wound with a roll of bandage. Soon after
-	you two are on your way, someone shoots in your direction. Do you
-		[E3]	[1] shoot back, or
-		[E5]	[2] evade and sneak towards the shooter?
+The call is answered by an unknown voice. He summons you to enter the
+building to save your partner. Do you
+	[E5]	follow the instructions, or
+	[E6]	try to call someone else?
 }
 
 (D4) {
-	You quickly remember the direction the mischievous man had taken earlier and
-	follow it. To make sure, you describe the man to some passers-by and are
-	propitiously directed the right way. Do you
-		[E6]	[1] try to track down the assassin, or
-		[E7]	[2] try to involve a bigger team on the mission?
-}
-
-(D5) {
-	You cautiously re-enter the building and head to your office. The mischievous
-	man is standing behind your friend. He asks for top secret information. Do
-	you
-		[E8]	[1] shoot first, or
-		[E9]	[2] give him false information?
-}
-
-(D6) {
-	Surprisingly, the assassin got hold of this number too. Do you
-		[E10]	[1] call a third number just to make sure, or
-		[D5]	[2] follow his previous instructions?
-}
-
-(D7) {
-	As you near the exit, you hear shots from behind the group of people trying
-	to escape. The crowd is in chaos. Do you
-		[E11]	[1] try to fire some shots, or
-		[E12]	[2] run with the crowd?
-}
-
-(D8) {
-	You cautiously examine each floor. As you reach the third, you hear mumbling
-	voices in a room. You sneak through the door and see the mischievous man from
-	earlier with someone else in similar clothes vigorously going through top
-	secret files. Do you
-		[E13]	[1] shoot at them, or
-		[E14]	[2] call for help?
+You try to ask the people rushing out what has happened, but no one hears you
+as they sprint to the exits. Do you
+	[E7]	follow everyone back outside, or
+	[E8]	keep going inside?
 }
 
 (E1) {
-	The lock breaks. You push the door open and find a flight of stairs. You hear
-	someone running up and you point your gun towards the man. Unfortunately,
-	you've wasted your last bullet breaking the lock. The man aims and shoots
-	you directly in the head.
-		[END]
-	
+You push the door, but it doesn't open. Do you
+	[F1]	use your gun, or
+	[F2]	use your lock pick?
 }
 
 (E2) {
-	You waste around 10 seconds unlocking the door. The man has reached the top
-	of the building and aims his gun at you. You are now dead.
-		[END]
+You decide to enter the next building. You reach the roof top and spot the
+man still running. Do you
+	[F3]	try to shoot him, or
+	[F4]	keep chasing him?
 }
 
 (E3) {
-	Your shots connect. The assassin is dead.
-		[END]
+You re-enter the building to get a medicine kit. Your partner insists on not
+wasting time and quickly wraps his wound with a roll of bandage. Soon after
+you two are on your way, someone shoots in your direction. Do you
+	[F3]	shoot back, or
+	[F5]	evade and sneak towards the shooter?
 }
 
 (E4) {
-	You face a battle with the assassin.
-		[END]
+You quickly remember the direction the mischievous man had taken earlier and
+follow it. To make sure, you describe the man to some passers-by and are
+propitiously directed the right way. Do you
+	[F6]	try to track down the assassin, or
+	[F7]	try to involve a bigger team on the mission?
 }
 
 (E5) {
-	You ambush the assassin and face a battle with him.
-		[END] 
+You cautiously re-enter the building and head to your office. The mischievous
+man is standing behind your friend. He asks for top secret information. Do
+you
+	[F8]	shoot first, or
+	[F9]	give him false information?
 }
 
 (E6) {
-	The directions given were pointless. The assassin took a circular route, and
-	has managed to escape.
-		[END]
+Surprisingly, the assassin got hold of this number too. Do you
+	[F10]	call a third number just to make sure, or
+	[E5]	follow his previous instructions?
 }
 
 (E7) {
-	The mission is off your hands now.
-		[END]
+As you near the exit, you hear shots from behind the group of people trying
+to escape. The crowd is in chaos. Do you
+	[F11]	try to fire some shots, or
+	[F12]	run with the crowd?
 }
 
 (E8) {
-	Your shots connect. The assassin is dead. Unfortunately, so is your friend.
-		[END]
+You cautiously examine each floor. As you reach the third, you hear mumbling
+voices in a room.
+<SNEAK>
+(PASS) {
+You sneak through the door and see the mischievous man from
+earlier with someone else in similar clothes vigorously going through top
+secret files. Do you
+	[F13]	shoot at them, or
+	[F14]	call for help?
+}
+(FAIL) {
+You weren't as sneaky as you had hoped. The two men pull out their
+guns and shoot one bullet each in your direction. You promptly fall over
+dead.
+	[END]
+}}
+
+(F1) {
+The lock breaks. You push the door open and find a flight of stairs. You hear
+someone running up and you point your gun towards the man. Unfortunately,
+you've wasted your last bullet breaking the lock. The man aims and shoots
+you directly in the head.
+	[END]
+	
 }
 
-(E9) {
-	The man plays along, but senses the deception. Mid-sentence, you hear a gun
-	shot and your friend's body hit the floor. You hear another gun shot and your
-	body follows your friend's.
-		[END]
+(F2) {
+<LOCKPICK>
+(PASS) {
+You waste no time picking the lock. You push open the door and find a flight
+of stairs. You see the man running up. Do you
+	[F3]	shoot at him, or
+	[F4]	chase him down?
+} 
+(FAIL) {
+You waste too much time unlocking the door. The man has reached the top
+of the building and aims his gun at you. In a matter of seconds, you are
+dead.
+	[END]
+}}
+
+(F3) {
+Your shots connect. The assassin is dead.
+	[END]
 }
 
-(E10) {
-	You've underestimated the man when he answers for the third time. But another
-	chance is not given. He shoots your friend, and shoots you through the
-	window of your office. You and your friend are now dead.
-		[END]
+(F4) {
+You face a battle with the assassin.
+	[END]
 }
 
-(E11) {
-	After a few shots, the crowd calms down enough for the assassin to aim at
-	your head. One more gun shot is heard.
-		[END]
+(F5) {
+You ambush the assassin and face a battle with him.
+	[END] 
 }
 
-(E12) {
-	At this point, the assassin only wants to get out of the building as quickly
-	as possibly. He shoots whoever's in his way...including you.
-		[END]
+(F6) {
+The directions given were pointless. The assassin took a circular route, and
+has managed to escape.
+	[END]
 }
 
-(E13) {
-	You ambush both men and manage to subdue them. Mission accomplished.
-		[END]
+(F7) {
+The mission is off your hands now.
+	[END]
 }
 
-(E14) {
-	They hear you before your help arrives and proceed to shoot at you.
-		[END]
+(F8) {
+Your shots connect. The assassin is dead. Unfortunately, so is your friend.
+	[END]
+}
+
+(F9) {
+The man plays along, but senses the deception. Mid-sentence, you hear a gun
+shot and your friend's body hit the floor. You hear another gun shot and your
+body follows your friend's.
+	[END]
+}
+
+(F10) {
+You've underestimated the man when he answers for the third time. But another
+chance is not given. He shoots your friend, and shoots you through the
+window of your office. You and your friend are now dead.
+	[END]
+}
+
+(F11) {
+After a few shots, the crowd calms down enough for the assassin to aim at
+your head. One more gun shot is heard.
+	[END]
+}
+
+(F12) {
+At this point, the assassin only wants to get out of the building as quickly
+as possibly. He shoots whoever's in his way...including you.
+	[END]
+}
+
+(F13) {
+You ambush both men and manage to subdue them. Mission accomplished.
+	[END]
+}
+
+(F14) {
+They hear you before your help arrives and proceed to shoot at you.
+	[END]
 }

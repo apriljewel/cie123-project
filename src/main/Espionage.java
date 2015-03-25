@@ -13,16 +13,19 @@ import java.util.*;
  */
 
 public class Espionage {
-	static Scanner input = new Scanner(System.in); 
+	static Scanner input = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		//Player player = new Player(10, 3, 3, 3, 3, 3, 3);
+		final int SCENARIO = 0, CHOICE = 1, TEST = 3, SEEK = 4, READ = 5;
+		int state = READ;
+		
+		Player player = new Player(10, 3, 3, 3, 3, 3, 3);
 		Scanner storyline = null;
 		String filename = "Storyline.txt";
 		
 		try {
 			storyline = new Scanner(new BufferedReader(new FileReader("src/"+filename)));
-			String storyLine;
+			String storyLine = "";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 			
 			List<String> choices = new ArrayList<String>();
 			
@@ -30,71 +33,88 @@ public class Espionage {
 			String choice = "";
 			
 			boolean gameOver = false;
-			boolean gameStart = true;
 			
 			while(!gameOver) {
 				if(!storyline.hasNextLine()) {
 					storyline.close();
-					storyline = new Scanner(new BufferedReader(new FileReader("src/Storyline1.txt")));
+					storyline = new Scanner(new BufferedReader(new FileReader("src/"+filename)));
 				}
-				storyLine = storyline.nextLine();
 				
-				if (storyLine.contains("(") || gameStart) {
-					if (storyLine.contains("(")) {
-						scenarioHash = storyLine.substring(1, storyLine.indexOf(")"));
-					}
-					
-					if(scenarioHash.equals(choice)) {
-						if(storyLine.contains("{")) {
-							System.out.println("Scenario: "+scenarioHash);
-							
-							while(!"}".equals(storyLine = storyline.nextLine())) {
-								if(storyLine.contains("[")) {
-									String choiceHash;
-									choiceHash = storyLine.substring(storyLine.indexOf("[")+1, storyLine.indexOf("]"));
-									if(choiceHash.equals("END")) {
-										gameOver = true;
-										storyLine = "\t\tTHE "+choiceHash;
-									} else {
-										choices.add(choiceHash);
-										storyLine = "\t\t<"+choices.size()+"-"+choiceHash+"> "+storyLine.substring(storyLine.indexOf("]", storyLine.indexOf("]")+1)+1);
-									}
-								}
-								
+				switch(state) {
+					case SCENARIO:
+						if(storyLine.contains("[")) {
+							state = CHOICE;
+						} else if(storyLine.contains("<")) {
+							state = TEST;
+						} else {
+							System.out.println(storyLine);
+							storyLine = storyline.nextLine();
+						}
+						break;
+					case CHOICE:
+						if(storyLine.contains("[")) {
+							String choiceHash = storyLine.substring(storyLine.indexOf("[")+1, storyLine.indexOf("]"));
+							if(choiceHash.equals("END")) {
+								System.out.println("THE END");
+								gameOver = true;
+							} else {
+								choices.add(choiceHash);
+								storyLine = "\t<"+choices.size()+"-"+choiceHash+"> "+storyLine.substring(storyLine.indexOf("]")+1);
 								System.out.println(storyLine);
-							}
-							
-							boolean choiceMade = false;
-							
-							while(!choiceMade && choices.size() > 0) {
-								System.out.print("----> ");
-								choice = input.nextLine();
-								try {
-									if(Integer.parseInt(choice)-1 >= 0 && Integer.parseInt(choice)-1 < choices.size()){
-										choiceMade = true;
-										choice = choices.get(Integer.parseInt(choice)-1);
-										System.out.println("You chose "+choice);
-									} else {
-										System.out.print("Not a choice ");
-									}
-								} catch (NumberFormatException e) {
-									choiceMade = false;
+								storyLine = storyline.nextLine();
+							}						
+						} else {
+							System.out.print("----> ");
+							choice = input.nextLine();
+							try {
+								if(Integer.parseInt(choice)-1 >= 0 && Integer.parseInt(choice)-1 < choices.size()){
+									choice = choices.get(Integer.parseInt(choice)-1);
+									System.out.println("You chose "+choice);
+									choices.clear();
+									state = SEEK;
+								} else {
 									System.out.print("Not a choice ");
 								}
+							} catch (NumberFormatException e) {
+								System.out.print("Not a choice ");
 							}
-							
-							choices.clear();
-							
 						}
-					}
+						break;
+					case TEST:
+						if(storyLine.contains("<")) {
+							String skill = storyLine.substring(storyLine.indexOf("<")+1, storyLine.indexOf(">"));
+							System.out.println("~~~~~");
+							System.out.print("Skill test: "+skill+" = "+player.getSkill(player.getSkillIndex(skill)));
+							if(encounter(player.getSkill(player.getSkillIndex(skill)))) {
+								choice = "PASS";
+							} else {
+								choice = "FAIL";
+							}
+							state = SEEK;
+							System.out.println("~~~~~");
+						}
+						break;
+					case READ:
+						storyLine = storyline.nextLine();
+						if(storyLine.contains("(")) {
+							state = SCENARIO;
+							storyLine = storyline.nextLine();
+						}
+						break;
+					case SEEK:
+						storyLine = storyline.nextLine();
+						if(storyLine.contains("(")) {
+							scenarioHash = storyLine.substring(storyLine.indexOf("(")+1, storyLine.indexOf(")"));
+							if(scenarioHash.equals(choice)) {
+								state = SCENARIO;
+								storyLine = storyline.nextLine();
+							}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+						}
+						break;
 				}
-				
-				gameStart = false;
 			}
-			
 			storyline.close();
 			close();
-			
 		} catch(FileNotFoundException e) {
 			System.out.println(filename+" not found.");
 		}
@@ -135,7 +155,7 @@ public class Espionage {
 	 * @return	true if encounter is successful, false if not
 	 */
 	
-	public static boolean encounter(int skill) {		
+	public static boolean encounter(int skill) {
 		for(int i = skill; i > 0; i--) {
 			input.nextLine();
 			System.out.print(i+": ");

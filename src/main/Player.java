@@ -6,15 +6,15 @@ package main;
  public class Player{
 	private int hp;
 	private int[] skill = new int[6];
-	public static final int GUNS = 0, LOCKPICK = 1, MEDICINE = 2, SCIENCE = 3, SNEAK = 4, SPEECH = 5;
+	public static final int GUNS = 0, LOCKPICK = 1, MEDICINE = 2, PERCEPTION = 3, SNEAK = 4, SPEECH = 5;
+	public static String[] skillNames = {"GUNS", "LOCKPICK", "MEDICINE", "PERCEPTION", "SNEAK", "SPEECH"};
 	
-	Player(int hp, int guns, int lockpick, int medicine, int science, int sneak, int speech){
+	Player(int hp, int guns, int lockpick, int medicine, int perception, int sneak, int speech) {
 		this.hp = hp;
-		
 		skill[0] = guns;
 		skill[1] = lockpick;
 		skill[2] = medicine;
-		skill[3] = science;
+		skill[3] = perception;
 		skill[4] = sneak;
 		skill[5] = speech;
 	}
@@ -68,7 +68,28 @@ package main;
 		return false;
 	}
 	
+	/*
+	 * This function is used to get the amount of dice roll tries a player has for a specified skill
+	 * @param	index	the index of the skill
+	 * @return	the value of the skill at the specified index
+	 */
+	
 	public int getSkill(int index){
 		return skill[index];
+	}
+	
+	/*
+	 * This function is used to get the index of a skill by its name.
+	 * @param	skillName	the name of the skill
+	 * @return	the index of the skill, -1 if the skill doesn't exist 
+	 */
+	
+	public int getSkillIndex(String skillName) {
+		for(int i = 0; i < skillNames.length; ++i) {
+			if(skillName.equals(skillNames[i])) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }
