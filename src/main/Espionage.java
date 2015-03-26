@@ -179,6 +179,15 @@ public class Espionage {
 		return false;
 	}
 	
+	/*
+	 * This function determines the outcomes of a battle.
+	 * @param	playerHP	the maximum HP of the player
+	 * @param	playerAttack	the amount of damage the player inflicts on the enemy during a successful hit
+	 * @param	enemyHP	the maximum HP of the enemy
+	 * @param	enemyAttack	the amount of damage the enemy inflicts on the player during a successful hit
+	 * @return	true if the player wins, false if not
+	 */
+	
 	public static boolean battle(int playerHP, int playerAttack, int enemyHP, int enemyAttack) {
 		while(true) {
 			for(int i = 0; i < 2; ++i) {
@@ -213,6 +222,10 @@ public class Espionage {
 			}
 		}
 	}
+	
+	/*
+	 * This function closes the input Scanner.
+	 */
 	
 	public static void close() {
 		input.close();

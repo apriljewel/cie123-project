@@ -7,7 +7,16 @@ package main;
 	private int hp, attack;
 	private int[] skill = new int[6];
 	public static final int GUNS = 0, LOCKPICK = 1, MEDICINE = 2, PERCEPTION = 3, SNEAK = 4, SPEECH = 5;
+	
+	/*
+	 * This array contains the names of the player's skills.
+	 */
+	
 	public static String[] skillNames = {"GUNS", "LOCKPICK", "MEDICINE", "PERCEPTION", "SNEAK", "SPEECH"};
+	
+	/*
+	 * The constructor initializes the HP, attack power, and values of the skills of the player.
+	 */
 	
 	Player(int hp, int attack, int guns, int lockpick, int medicine, int perception, int sneak, int speech) {
 		this.hp = hp;
@@ -28,6 +37,11 @@ package main;
 	public int getHP(){
 		return hp;
 	}
+	
+	/*
+	 * This function returns the amount of damage the player can inflict on an enemy.
+	 * @return	the attack power of the player
+	 */
 	
 	public int getAttack() {
 		return attack;
