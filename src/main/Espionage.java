@@ -19,7 +19,7 @@ public class Espionage {
 		final int SCENARIO = 0, CHOICE = 1, TEST = 3, SEEK = 4, READ = 5;
 		int state = READ;
 		
-		Player player = new Player(10, 3, 3, 3, 3, 3, 3);
+		Player player = new Player(10, 1, 3, 3, 3, 3, 3, 3);
 		Scanner storyline = null;
 		String filename = "Storyline.txt";
 		
@@ -59,7 +59,7 @@ public class Espionage {
 								gameOver = true;
 							} else {
 								choices.add(choiceHash);
-								storyLine = "\t<"+choices.size()+"-"+choiceHash+"> "+storyLine.substring(storyLine.indexOf("]")+1);
+								storyLine = "\t<"+choices.size()+"-"+choiceHash+"> "+storyLine.substring(storyLine.indexOf("]")+2);
 								System.out.println(storyLine);
 								storyLine = storyline.nextLine();
 							}						
@@ -81,9 +81,19 @@ public class Espionage {
 						}
 						break;
 					case TEST:
-						if(storyLine.contains("<")) {
+						System.out.println("~~~~~");
+						if(storyLine.contains("BATTLE")) {
+							int enemyHP = Integer.parseInt(storyLine.substring(storyLine.indexOf("(")+1, storyLine.indexOf("-")));
+							int enemyAttack = Integer.parseInt(storyLine.substring(storyLine.indexOf("-")+1, storyLine.indexOf(")")));
+							System.out.print("Battle:");
+							if(battle(player.getHP(), player.getAttack(), enemyHP, enemyAttack)) {
+								choice = "PASS";
+							} else {
+								choice = "FAIL";
+							}
+							state = SEEK;
+						} else if(storyLine.contains("<")) {
 							String skill = storyLine.substring(storyLine.indexOf("<")+1, storyLine.indexOf(">"));
-							System.out.println("~~~~~");
 							System.out.print("Skill test: "+skill+" = "+player.getSkill(player.getSkillIndex(skill)));
 							if(encounter(player.getSkill(player.getSkillIndex(skill)))) {
 								choice = "PASS";
@@ -91,8 +101,8 @@ public class Espionage {
 								choice = "FAIL";
 							}
 							state = SEEK;
-							System.out.println("~~~~~");
 						}
+						System.out.println("~~~~~");
 						break;
 					case READ:
 						storyLine = storyline.nextLine();
@@ -130,7 +140,7 @@ public class Espionage {
 		Random rand = new Random();
 		int number = rand.nextInt(6)+1;
 		
-		System.out.print("Dice Roll: "+number);
+		System.out.print("Dice Roll = "+number);
 		
 		return number;
 	}
@@ -142,7 +152,7 @@ public class Espionage {
 	 */
 	
 	public static boolean pass(int roll) {
-		if(roll > 4) {
+		if(roll > 4 && roll <= 6) {
 			return true;
 		}
 		
@@ -167,6 +177,41 @@ public class Espionage {
 		
 		System.out.println("\nYou failed!");
 		return false;
+	}
+	
+	public static boolean battle(int playerHP, int playerAttack, int enemyHP, int enemyAttack) {
+		while(true) {
+			for(int i = 0; i < 2; ++i) {
+				input.nextLine();
+				
+				if(i == 0) {
+					System.out.print("You: ");
+				} else {
+					System.out.print("Enemy: ");
+				}
+				
+				if(pass(rollDice())) {
+					if(i == 0) {
+						enemyHP -= playerAttack;
+					} else {
+						playerHP -= enemyAttack;
+					}
+					System.out.print(" | Attack successful. [ You = "+playerHP+" | Enemy = "+enemyHP+"]");
+				} else {
+					System.out.print(" | Attack evaded.");
+				}
+				
+				if(playerHP <= 0) {
+					System.out.println();
+					System.out.println("You lose.");
+					return false;
+				} else if(enemyHP <= 0) {
+					System.out.println();
+					System.out.println("You win.");
+					return true;
+				}
+			}
+		}
 	}
 	
 	public static void close() {

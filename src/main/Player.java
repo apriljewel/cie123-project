@@ -4,13 +4,14 @@ package main;
  */
 
  public class Player{
-	private int hp;
+	private int hp, attack;
 	private int[] skill = new int[6];
 	public static final int GUNS = 0, LOCKPICK = 1, MEDICINE = 2, PERCEPTION = 3, SNEAK = 4, SPEECH = 5;
 	public static String[] skillNames = {"GUNS", "LOCKPICK", "MEDICINE", "PERCEPTION", "SNEAK", "SPEECH"};
 	
-	Player(int hp, int guns, int lockpick, int medicine, int perception, int sneak, int speech) {
+	Player(int hp, int attack, int guns, int lockpick, int medicine, int perception, int sneak, int speech) {
 		this.hp = hp;
+		this.attack = attack;
 		skill[0] = guns;
 		skill[1] = lockpick;
 		skill[2] = medicine;
@@ -20,52 +21,16 @@ package main;
 	}
 	
 	/**
-	 * This function decreases the health points of the player.
-	 * @param	damage	the amount to subtract from the player's health points
-	 * @return	the modified health points
-	 */
-	 
-	public int takeDamage(int damage){
-		hp -= damage;
-		
-		return hp;
-	}
-	
-	/**
-	 * This function increases the health points of the player.
-	 * @param	regen	the amount to add to the player's health points
-	 * @return	the modified health points
-	 */
-	 
-	public int heal(int regen){
-		hp += regen;
-		
-		return hp;
-	}
-	
-	/**
 	 * This function returns the health points of the player.
 	 * @return	the player's health points
 	 */
 	
 	public int getHP(){
-		System.out.println("HP: "+hp);
 		return hp;
 	}
 	
-	/**
-	 * This function determines whether the player's health points is still greater than 0 or not.
-	 * @return	true if the player is alive, false if dead
-	 */
-	 
-	public boolean isAlive(){
-		if(hp > 0){
-			return true;
-		}
-		
-		System.out.println("You are dead.");
-		hp = 0;
-		return false;
+	public int getAttack() {
+		return attack;
 	}
 	
 	/*
@@ -75,7 +40,12 @@ package main;
 	 */
 	
 	public int getSkill(int index){
-		return skill[index];
+		if(index < 0 || index >= skill.length) {
+			System.out.println("Skill doesn't exist.");
+			return 0;
+		} else {
+			return skill[index];
+		}
 	}
 	
 	/*

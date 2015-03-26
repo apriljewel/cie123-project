@@ -139,8 +139,7 @@ The lock breaks. You push the door open and find a flight of stairs. You hear
 someone running up and you point your gun towards the man. Unfortunately,
 you've wasted your last bullet breaking the lock. The man aims and shoots
 you directly in the head.
-	[END]
-	
+	[END]	
 }
 
 (F2) {
@@ -170,8 +169,16 @@ You face a battle with the assassin.
 
 (F5) {
 You ambush the assassin and face a battle with him.
-	[END] 
+<BATTLE> (5-1)
+(PASS) {
+Congratulations! You've subdued the assassin. Mission accomplished. 
+	[END]
+
 }
+(FAIL) {
+Deeeaaaaatttthhhhh. Lol.
+	[END]
+}}
 
 (F6) {
 The directions given were pointless. The assassin took a circular route, and
